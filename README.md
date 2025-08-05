@@ -1,9 +1,12 @@
-# claude-mcp-demo
-A demo on how to integrate Bitnami Helm charts with Helm charts from Bitnami and Tanzu Application Catalog.
+# Bitnami Secure Images / Tanzu Application Catalog (TAC) claude-mcp-demo
+A demo on how to integrate Bitnami Helm charts with Helm charts from Bitnami Secure Images and Tanzu Application Catalog.
 
-*Note: This is a demo/proof of concept. It is not meant to be part of Bitnami, Bitnami Premium or Tanzu Application Catalog and rather it is meant to serve as a demonstration of how easy it can be to integrate Bitnami Helm charts as a source of data to AI agents. 
+*Note: This is a demo/proof of concept. It is not meant to be part of Bitnami Secure Images or Tanzu Application Catalog and rather it is meant to serve as a demonstration of how easy it can be to integrate Bitnami Helm charts as a source of data to AI agents. 
 
-This project is built with [Spring AI](https://spring.io/projects/spring-ai). I highly recommend [Dan Vega's introduction to MCP video](https://www.youtube.com/watch?v=w5YVHG1j3Co) as a quick way to get you ramped up with [Model Context Protocol](https://github.com/modelcontextprotocol). 
+This project is built with [Spring AI](https://spring.io/projects/spring-ai). I highly recommend [Dan Vega's introduction to MCP video](https://www.youtube.com/watch?v=w5YVHG1j3Co) as a quick way to ramp up with [Model Context Protocol](https://github.com/modelcontextprotocol).  Check out the official [Model Context Protocol Java SDK](https://github.com/modelcontextprotocol/java-sdk) to learn more and explore this project's benefits.
+
+To dive deeper into AI Frameworks with Spring AI, we recommend Dan Vega's deep dive workshop, [AI for Java Developers: Full Course / Workshop on Getting Started with Spring AI](https://www.youtube.com/watch?v=FzLABAppJfM).
+
 
 # Architecture
 As with most MCP applications the architecture is actually quite simple. Note also that I have just tested this project in stdio mode, although I don't see any reason why it wouldn't work in HTTP SSE mode. 
@@ -22,7 +25,7 @@ flowchart TD
 # How it works
 The project is actually very simple and most of the logic is inside he Helm service. I'm using only [MCP tools](https://modelcontextprotocol.io/docs/concepts/tools) but I admit this is not a deliberated choice but rather a lets-use-what-everyone-else-is-using kind of choice. It kind of feels that there are better ways to do this, like for example [MCP resources](https://modelcontextprotocol.io/docs/concepts/resources), but as I could only make Claude to understand tools that was the quickest way to demo state. I don't discard revisiting the whole flow or if you happen to know how to integrate this better then do not hesitate letting me know through issues or PRs. 
 
-At a glance, the MCPApplication instructs Spring AI to introspect tools:
+At a glance, the MCP Application instructs Spring AI to introspect tools:
 
 ```java
     @Bean
@@ -90,11 +93,11 @@ Finally start Claude Desktop and you should be able to ask questions about Helm 
 ```
 Martin: What Infrastructure Helm charts do I have available in Bitnami?
 
-Claude: Let me check what Infrastructure category Helm charts are available in your Bitnami Premium or Tanzu Application Catalog subscription.
+Claude: Let me check what Infrastructure category Helm charts are available in your Bitnami Secure Images or Tanzu Application Catalog subscription.
 
 > View result from get_helm_charts from bitnami-mcp (local)
 
-Here are the Infrastructure category Helm charts available in your Bitnami Premium or Tanzu Application Catalog subscription:
+Here are the Infrastructure category Helm charts available in your Bitnami Secure Images or Tanzu Application Catalog subscription:
 
 1. Apache ZooKeeper
 Description: A reliable, centralized register of configuration data and services for distributed applications.
